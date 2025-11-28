@@ -1,0 +1,183 @@
+/* Скидання */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  min-height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+/* === ГОЛОВНА СІТКА === */
+.container {
+  display: grid;
+
+  grid-template-areas:
+    "header header header"
+    "block2 block3 block4"
+    "block5 block3 block4"
+    "blocky block6 block6";
+
+  grid-template-columns: 220px 1fr 250px;
+  grid-template-rows: auto auto auto auto;
+
+  min-height: 100vh;
+  border: 2px solid #000;
+}
+
+/* ==== HEADER ==== */
+.header {
+  grid-area: header;
+  background: #cfe7ff;
+  border-bottom: 2px solid #000;
+  padding: 14px 20px;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* Баланс — зліва, по центру */
+.balance-box {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  padding: 5px 12px;
+  background: #fff;
+  border: 2px solid #000;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/* Логотип 2WIN — менший */
+.logo {
+  font-size: 26px;
+  margin-left: 140px; 
+  margin-bottom: 4px;
+}
+
+/* Меню нижче + менший текст */
+.menu-wrapper {
+  margin-left: 140px;
+  margin-top: 8px;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 14px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+/* БЛОК 2 */
+.block2 {
+  grid-area: block2;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+  padding: 12px;
+  background: #fde2c6;
+}
+
+/* БЛОК 5 */
+.block5 {
+  grid-area: block5;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+  padding: 12px;
+  background: #e6f5e8;
+}
+
+/* БЛОК y */
+.blocky {
+  grid-area: blocky;
+  border-right: 2px solid #000;
+  padding: 12px;
+  background: #fff0d9;
+}
+
+/* БЛОК 3 */
+.block3 {
+  grid-area: block3;
+  border-bottom: 2px solid #000;
+  border-right: 2px solid #000;
+  padding: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.main-img {
+  width: 100%;
+  border-radius: 6px;
+}
+
+/* БЛОК 4 */
+.block4 {
+  grid-area: block4;
+  border-bottom: 2px solid #000;
+  padding: 12px;
+  text-align: right;
+  background: #fde2c6;
+}
+
+/* БЛОК 6 — суцільний */
+.block6 {
+  grid-area: block6;
+  padding: 12px;
+  background: #cfe7ff;
+}
+
+/* ==== МОБІЛЬНА ВЕРСТКА ==== */
+@media (max-width: 768px) {
+
+  .container {
+    grid-template-areas:
+      "header"
+      "block2"
+      "block5"
+      "blocky"
+      "block3"
+      "block4"
+      "block6";
+
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .block2,
+  .block5,
+  .blocky,
+  .block3,
+  .block4,
+  .block6 {
+    border-right: none !important;
+    border-left: none !important;
+  }
+
+  .menu-wrapper {
+    margin-left: 0 !important;
+    margin-top: 10px;
+  }
+
+  .logo {
+    margin-left: 0 !important;
+  }
+
+  .balance-box {
+    position: static;
+    transform: none;
+    margin-bottom: 10px;
+  }
+}
